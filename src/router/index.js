@@ -3,24 +3,28 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     redirect: '/login',
-    component: () => import('@/layouts/default/Default.vue'),
-  
+    component: () => import('@/layouts/mainLayout.vue'),
     children: [
+
       {
         path: '',
-        redirect: '/login', // Redireciona para a rota de login
+        name: 'Home',
+        component: () => import('@/views/Home.vue'),
+        meta: {
+          title: "Início",
+        }
       },
       {
-        path: '/home',
-        name: 'Home',
-        // route level code-splitting
-        // this generates a separate chunk (Home-[hash].js) for this route
-        // which is lazy-loaded when the route is visited.
-        component: () => import('@/views/Home.vue'),
+        path: '/adicionarComentario',
+        name: 'adicionarComentario',
+        component: () => import('@/views/CommentForm.vue'),
+        meta: {
+          title: "Criar novos comentarios",
+        }
       },
-    ],
+    ]
   },
   {
       
@@ -41,7 +45,7 @@ const routes = [
         // which is lazy-loaded when the route is visited.
         component: () => import('@/layouts/Register.vue'),
   
-  },
+  }
 ]
 
 const router = createRouter({

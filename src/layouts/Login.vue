@@ -54,9 +54,9 @@
 
     if (!autenticated_user) {
       alert('Usuario ou senha inválidos');
-
     } else {
-      router.push('/')
+      alert('Usuario logado com sucesso!')
+      router.push('/home')
     }
   }
 

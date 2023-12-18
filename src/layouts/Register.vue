@@ -76,6 +76,8 @@ const sexOptions = [
     if (!autenticated_user) {
       alert('Usuario não pode ser cadastrado');
     } else {
+      await Promise.resolve();
+      
       alert('Usuario Cadastrado com sucesso');
       router.push({ name: '/login' });
     }
@@ -248,7 +250,7 @@ const sexOptions = [
 <style>
 
 .tela-cheia {
-  height: 100vh;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
